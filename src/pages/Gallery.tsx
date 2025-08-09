@@ -12,15 +12,15 @@ export default function Gallery() {
   return (
     <div className="container mx-auto py-16">
       <Helmet>
-        <title>Gallery: Custom Croc Charms | GunnJibbitz</title>
-        <meta name="description" content="Explore examples of custom Croc charms (Jibbitz) in cafes, events, retail displays, and tourism settings." />
+        <title>Gallery: Custom Shoe Charms | CustomCharm Co</title>
+        <meta name="description" content="Explore examples of custom shoe charms in cafes, events, retail displays, and tourism settings." />
         <link rel="canonical" href="/gallery" />
       </Helmet>
       <h1 className="text-3xl font-semibold mb-6">Gallery & Examples</h1>
       <div className="grid gap-6 md:grid-cols-3">
         {IMAGES.map((src, idx) => (
           <article key={idx} className="overflow-hidden rounded-xl border bg-card">
-            <img src={src} alt="Custom Croc charm example" loading="lazy" className="h-64 w-full object-cover" />
+            <img src={src} alt="Custom shoe charm example" loading="lazy" className="h-64 w-full object-cover" />
           </article>
         ))}
       </div>

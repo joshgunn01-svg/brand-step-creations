@@ -47,8 +47,8 @@ export default function Contact() {
   return (
     <div className="container mx-auto py-16">
       <Helmet>
-        <title>Enquire | Free Mockup & Quote | GunnJibbitz</title>
-        <meta name="description" content="Send your logo and details to get a free mockup and quote for custom Croc charms. Wholesale pricing from $2/unit." />
+        <title>Enquire | Free Mockup & Quote | CustomCharm Co</title>
+        <meta name="description" content="Send your logo and details to get a free mockup and quote for custom shoe charms. Wholesale pricing from $2/unit." />
         <link rel="canonical" href="/contact" />
       </Helmet>
       <div className="grid gap-10 md:grid-cols-2">

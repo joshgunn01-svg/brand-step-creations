@@ -13,8 +13,8 @@ export default function Process() {
   return (
     <div className="container mx-auto py-16">
       <Helmet>
-        <title>Custom Charm Process | GunnJibbitz</title>
-        <meta name="description" content="See how our 4-step process creates premium custom Croc charms: enquire, mockup, approve, and delivery." />
+        <title>Custom Charm Process | CustomCharm Co</title>
+        <meta name="description" content="See how our 4-step process creates premium custom shoe charms: enquire, mockup, approve, and delivery." />
         <link rel="canonical" href="/process" />
       </Helmet>
       <h1 className="text-3xl font-semibold mb-8">Our Process</h1>

@@ -23,10 +23,10 @@ export function SiteFooter() {
         <div className="space-y-3">
           <Link to="/" className="inline-flex items-center gap-2">
             <div className="h-6 w-6 rounded-md bg-[hsl(var(--accent))]" aria-hidden />
-            <span className="text-base font-semibold">GunnJibbitz</span>
+            <span className="text-base font-semibold">CustomCharm Co</span>
           </Link>
           <p className="text-sm text-muted-foreground max-w-md">
-            Premium custom Croc charms for businesses. Wholesale quality, fast turnaround, expert design.
+            Premium custom shoe charms for businesses. Wholesale quality, fast turnaround, expert design.
           </p>
         </div>
         <div className="space-y-3">
@@ -44,7 +44,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between py-6 gap-4">
-          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} GunnJibbitz. All rights reserved.</p>
+          <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} CustomCharm Co. All rights reserved.</p>
           <nav className="flex gap-4 text-xs text-muted-foreground">
             <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
             <Link to="/terms" className="hover:text-foreground">Terms</Link>

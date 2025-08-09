@@ -16,8 +16,8 @@ export default function Industries() {
   return (
     <div className="container mx-auto py-16">
       <Helmet>
-        <title>Industries We Serve | GunnJibbitz</title>
-        <meta name="description" content="Cafes, bars, festivals, retail stores, tourism, sporting clubs, and schools use custom Croc charms to drive engagement and sales." />
+        <title>Industries We Serve | CustomCharm Co</title>
+        <meta name="description" content="Cafes, bars, festivals, retail stores, tourism, sporting clubs, and schools use custom shoe charms to drive engagement and sales." />
         <link rel="canonical" href="/industries" />
       </Helmet>
       <h1 className="text-3xl font-semibold mb-6">Industries We Serve</h1>

@@ -6,7 +6,7 @@ export default function Pricing() {
   return (
     <div className="container mx-auto py-16">
       <Helmet>
-        <title>Pricing | Wholesale Custom Croc Charms</title>
+        <title>Pricing | Wholesale Custom Shoe Charms | CustomCharm Co</title>
         <meta name="description" content="Wholesale pricing from $2/unit (minimum 500 units). Bulk discounts available. Request a custom quote today." />
         <link rel="canonical" href="/pricing" />
       </Helmet>

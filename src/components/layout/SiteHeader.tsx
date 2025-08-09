@@ -17,7 +17,7 @@ export function SiteHeader() {
       <div className="container mx-auto flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <div className="h-8 w-8 rounded-md bg-[hsl(var(--accent))] shadow-[var(--shadow-glow)]" aria-hidden />
-          <span className="text-lg font-semibold tracking-tight">GunnJibbitz</span>
+          <span className="text-lg font-semibold tracking-tight">CustomCharm Co</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (

@@ -1,4 +1,4 @@
-import heroImg from "@/assets/hero-croc-charms.jpg";
+import heroImg from "@/assets/hero-shoe-charms.jpg";
 import cafe1 from "@/assets/gallery-cafe-1.jpg";
 import bar1 from "@/assets/gallery-bar-1.jpg";
 import retail1 from "@/assets/gallery-retail-1.jpg";
@@ -30,8 +30,8 @@ const Index = () => {
   return (
     <div className="bg-background">
       <Helmet>
-        <title>Custom Croc Charms for Businesses | GunnJibbitz</title>
-        <meta name="description" content="Custom Croc charms (wholesale Jibbitz) for cafes, bars, retail, events & tourism. From $2/unit. Free mockup & fast delivery Australia-wide." />
+        <title>Custom Shoe Charms for Businesses | CustomCharm Co</title>
+        <meta name="description" content="Custom shoe charms for cafes, bars, retail, events & tourism. From $2/unit. Free mockup & fast delivery Australia-wide." />
         <link rel="canonical" href="/" />
       </Helmet>
 
@@ -42,10 +42,10 @@ const Index = () => {
         <div className="container mx-auto grid gap-10 py-20 md:grid-cols-2 relative">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Your Brand, On Every Step – Custom Croc Charms for Businesses
+              Your Brand, On Every Step – Custom Shoe Charms for Businesses
             </h1>
             <p className="text-lg text-muted-foreground max-w-prose">
-              Boost brand awareness and delight customers with high-quality, fully customisable Croc charms. Perfect for resale, giveaways, or merchandise.
+              Boost brand awareness and delight customers with high-quality, fully customisable shoe charms. Perfect for resale, giveaways, or merchandise.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button variant="cta" size="lg" onClick={() => navigate("/contact?type=mockup")}>
@@ -64,7 +64,7 @@ const Index = () => {
           <div className="relative">
             <img
               src={heroImg}
-              alt="Custom branded Croc charms product hero for businesses"
+              alt="Custom branded shoe charms product hero for businesses"
               loading="eager"
               className="w-full h-auto rounded-xl border shadow-2xl"
             />
@@ -77,7 +77,7 @@ const Index = () => {
         <div className="grid gap-6 md:grid-cols-3">
           {[cafe1, bar1, retail1, closeup1, tourism1, festival1].slice(0,6).map((src, i) => (
             <article key={i} className="group relative overflow-hidden rounded-xl border bg-card">
-              <img src={src} alt="Custom Croc charms in real-world use" loading="lazy" className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+              <img src={src} alt="Custom shoe charms in real-world use" loading="lazy" className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
             </article>
           ))}
         </div>
