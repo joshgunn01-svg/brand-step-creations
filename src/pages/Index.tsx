@@ -38,8 +38,7 @@ Your Charm</title>
           <div className="absolute top-0 left-0 p-6 md:p-10 max-w-xl">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Logo, 
 Your Charm</h1>
-            <p className="mt-3 text-lg text-muted-foreground max-w-prose hidden md:block">Boost brand awareness with custom 
-PVC charms for cafes, retail, events & tourism.</p>
+            <p className="mt-3 text-lg text-muted-foreground max-w-prose hidden md:block">Boost brand awareness with custom<br />PVC charms for cafes, retail, events & tourism.</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Button variant="cta" size="lg" onClick={() => navigate("/contact?type=mockup")}>
                 Request a Free Mockup
