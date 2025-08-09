@@ -66,8 +66,7 @@ Your Charm</title>
       <section className="container mx-auto py-16 bg-gray-50">
         <div className="grid gap-8 md:grid-cols-4">
           {benefits.map(b => <div key={b} className="rounded-lg border bg-card p-6 shadow-sm">
-              <h3 className="font-medium">{b.split(" (")[0]}</h3>
-              <p className="text-sm text-muted-foreground mt-2">{b}</p>
+              <p className="text-sm text-muted-foreground">{b}</p>
             </div>)}
         </div>
       </section>
