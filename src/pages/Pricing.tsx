@@ -7,12 +7,12 @@ export default function Pricing() {
     <div className="container mx-auto py-16">
       <Helmet>
         <title>Pricing | Wholesale Custom Shoe Charms | CustomCharm Co</title>
-        <meta name="description" content="Wholesale pricing from $2/unit (minimum 500 units). Bulk discounts available. Request a custom quote today." />
+        <meta name="description" content="Wholesale pricing from $1.50/unit (minimum 500 units). Bulk discounts available. Request a custom quote today." />
         <link rel="canonical" href="/pricing" />
       </Helmet>
       <h1 className="text-3xl font-semibold mb-4">Pricing & Minimum Order</h1>
       <div className="rounded-xl border p-8 bg-card max-w-2xl">
-        <p className="text-lg font-medium">From $2 / unit</p>
+        <p className="text-lg font-medium">From $1.50 / unit</p>
         <p className="text-muted-foreground">Minimum order: 500 units</p>
         <p className="text-sm text-muted-foreground mt-2">Bulk discounts available for larger quantities. Pricing varies by complexity and finish.</p>
         <div className="mt-6 flex gap-3">

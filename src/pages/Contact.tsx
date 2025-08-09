@@ -48,7 +48,7 @@ export default function Contact() {
     <div className="container mx-auto py-16">
       <Helmet>
         <title>Enquire | Free Mockup & Quote | CustomCharm Co</title>
-        <meta name="description" content="Send your logo and details to get a free mockup and quote for custom shoe charms. Wholesale pricing from $2/unit." />
+        <meta name="description" content="Send your logo and details to get a free mockup and quote for custom shoe charms. Wholesale pricing from $1.50/unit." />
         <link rel="canonical" href="/contact" />
       </Helmet>
       <div className="grid gap-10 md:grid-cols-2">
@@ -114,7 +114,7 @@ export default function Contact() {
         <aside className="rounded-xl border p-6 bg-secondary">
           <h2 className="text-xl font-medium mb-2">Fast, professional B2B support</h2>
           <ul className="text-sm text-muted-foreground grid gap-2">
-            <li>• From $2/unit — 500 unit minimum</li>
+            <li>• From $1.50/unit — 500 unit minimum</li>
             <li>• Free digital mockup</li>
             <li>• Australia-wide tracked delivery</li>
             <li>• Designer feedback to keep it on-brand</li>

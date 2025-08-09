@@ -48,7 +48,7 @@ export default function About() {
 
         <section className="space-y-4 text-base leading-relaxed text-muted-foreground mt-6">
           <p>
-            With wholesale pricing starting at just $2 per unit and minimum orders of 500 units, we make it easy to turn your brand into something your customers will want to wear, show off, and talk about.
+            With wholesale pricing starting at just $1.50 per unit and minimum orders of 500 units, we make it easy to turn your brand into something your customers will want to wear, show off, and talk about.
           </p>
           <p>
             Whether you’re looking for a unique retail product, a promotional giveaway, or a creative addition to your merchandise line, we’re here to make it happen — step by step.

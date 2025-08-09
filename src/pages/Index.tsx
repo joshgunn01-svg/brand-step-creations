@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-const benefits = ["Wholesale pricing from $2/unit (min. 500 units)", "Custom designs & branding", "Fast turnaround & delivery Australia-wide", "High-quality, durable materials"];
+const benefits = ["Wholesale pricing from $1.50/unit (min. 500 units)", "Custom designs & branding", "Fast turnaround & delivery Australia-wide", "High-quality, durable materials"];
 const Index = () => {
   const navigate = useNavigate();
   const onPointerMove: React.MouseEventHandler<HTMLDivElement> = e => {
@@ -21,7 +21,7 @@ const Index = () => {
       <Helmet>
         <title>Your Logo,  
 Your Charm</title>
-        <meta name="description" content="Custom shoe charms for cafes, bars, retail, events & tourism. From $2/unit. Free mockup & fast delivery Australia-wide." />
+        <meta name="description" content="Custom shoe charms for cafes, bars, retail, events & tourism. From $1.50/unit. Free mockup & fast delivery Australia-wide." />
         <link rel="canonical" href="/" />
       </Helmet>
 
