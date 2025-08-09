@@ -36,7 +36,7 @@ Your Charm</title>
           <img src={heroImg} alt="Hero: white foam clogs with cafe-themed 3D charms (coffee cup, shopping bag, 'Your Logo Here' shield, heart, dumbbells, QR code)" loading="eager" className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/40 to-transparent" aria-hidden />
           <div className="absolute top-0 left-0 p-6 md:p-10 max-w-xl">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Logo, 
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Logo,  
 Your Charm</h1>
             <p className="mt-3 text-lg text-muted-foreground max-w-prose hidden md:block">Boost brand awareness with custom<br />PVC charms for cafes, retail, events & tourism.</p>
             <div className="mt-5 flex flex-wrap gap-3">
