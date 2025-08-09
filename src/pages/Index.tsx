@@ -1,4 +1,4 @@
-const heroImg = "/lovable-uploads/2d61b2a2-d92c-4e2b-88a8-ba5f162e7dfb.png";
+const heroImg = "/lovable-uploads/2d61b2a2-d92c-4e2b-88a8-ba5f162e7dfb-clean.png";
 import cafe1 from "@/assets/gallery-cafe-1.jpg";
 import bar1 from "@/assets/gallery-bar-1.jpg";
 import retail1 from "@/assets/gallery-retail-1.jpg";
