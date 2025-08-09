@@ -23,7 +23,7 @@ export function SiteFooter() {
       <div className="container mx-auto grid gap-8 py-12 md:grid-cols-2 bg-gray-50">
         <div className="space-y-3">
           <Link to="/" className="inline-flex items-center gap-2">
-            <div className="h-6 w-6 rounded-md bg-[hsl(var(--accent))]" aria-hidden />
+            <img src="/lovable-uploads/f3131de9-b91a-4967-af42-829c67c78fd5.png" alt="CustomCharm Co logo" loading="lazy" width={24} height={24} className="h-6 w-6" />
             <span className="text-base font-semibold">CustomCharm Co</span>
           </Link>
           <p className="text-sm text-muted-foreground max-w-md">
