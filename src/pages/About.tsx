@@ -29,7 +29,7 @@ export default function About() {
           <h2 id="process" className="sr-only">Our simple process</h2>
           <div className="rounded-xl border bg-card p-6 shadow-sm">
             <p className="font-medium mb-3">We’ve made the process simple:</p>
-            <ul className="grid gap-3 md:grid-cols-3 text-sm">
+            <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2">
                 <span className="mt-1 h-2 w-2 rounded-full bg-[hsl(var(--accent))]" aria-hidden />
                 <span>Send us your logo or concept</span>
