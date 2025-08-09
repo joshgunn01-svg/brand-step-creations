@@ -35,13 +35,16 @@ Your Charm</title>
         <AspectRatio ratio={16 / 9} className="relative rounded-xl overflow-hidden border shadow-2xl">
           <img src={heroImg} alt="Hero: white foam clogs with cafe-themed 3D charms (coffee cup, shopping bag, 'Your Logo Here' shield, heart, dumbbells, QR code)" loading="eager" className="absolute inset-0 h-full w-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/40 to-transparent" aria-hidden />
-          <div className="absolute top-0 left-0 p-6 md:p-10 max-w-xl">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Logo,  
-Your Charm</h1>
+            <div className="absolute top-0 left-0 p-6 md:p-10 max-w-xl">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+              <span className="block">Your Logo</span>
+              <span className="block">Your Charm</span>
+            </h1>
             <p className="mt-3 text-lg text-muted-foreground max-w-prose hidden md:block">Boost brand awareness with custom<br />PVC charms for cafes, retail, events & tourism.</p>
             <div className="mt-5 flex flex-wrap gap-3">
-              <Button variant="cta" size="lg" onClick={() => navigate("/contact?type=mockup")}>Boost brand awareness with custom
-PVC charms for cafes, clubs, retail, events & tourism.</Button>
+              <Button variant="cta" size="lg" onClick={() => navigate("/contact?type=mockup")}>
+                Request a Free Mockup
+              </Button>
               <Button variant="hero" size="lg" onClick={() => navigate("/contact?type=quote")}>
                 Get a Quote
               </Button>
