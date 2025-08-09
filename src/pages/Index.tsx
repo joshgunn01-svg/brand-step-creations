@@ -1,4 +1,4 @@
-import heroImg from "@/assets/hero-shoe-charms.jpg";
+import heroImg from "@/assets/hero-homepage.jpg";
 import cafe1 from "@/assets/gallery-cafe-1.jpg";
 import bar1 from "@/assets/gallery-bar-1.jpg";
 import retail1 from "@/assets/gallery-retail-1.jpg";
@@ -46,7 +46,7 @@ const Index = () => {
         <div className="container mx-auto grid gap-10 py-20 md:grid-cols-2 relative">
           <div className="space-y-6">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Your Brand, On Every Step – Custom Shoe Charms for Businesses
+              Your Logo, Your Charm
             </h1>
             <p className="text-lg text-muted-foreground max-w-prose">
               Boost brand awareness and delight customers with high-quality, fully customisable shoe charms. Perfect for resale, giveaways, or merchandise.
@@ -68,7 +68,7 @@ const Index = () => {
           <div className="relative">
             <img
               src={heroImg}
-              alt="PVC rubber clip-in shoe charms on unbranded foam clogs for Australian businesses"
+              alt="Custom shoe charms with placeholder logo area showing Your Logo Here on foam clogs"
               loading="eager"
               className="w-full h-auto rounded-xl border shadow-2xl"
             />
