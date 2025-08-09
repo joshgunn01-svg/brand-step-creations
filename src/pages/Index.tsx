@@ -50,9 +50,9 @@ const Index = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/40 to-transparent" aria-hidden />
           <div className="absolute top-0 left-0 p-6 md:p-10 max-w-xl">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">Cafe & Hospitality Shoe Charms</h1>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Logo, Your Charm</h1>
             <p className="mt-3 text-lg text-muted-foreground max-w-prose hidden md:block">
-              Showcase your cafe brand with custom PVC charms (coffee cups, bags, hearts, QR codes) made to your logo. Free mockup and fast delivery Australia-wide.
+              Boost brand awareness with custom PVC charms for cafes, retail, events & tourism.
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Button variant="cta" size="lg" onClick={() => navigate("/contact?type=mockup")}>
