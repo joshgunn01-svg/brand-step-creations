@@ -3,23 +3,24 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
-
 export function SiteFooter() {
   const [email, setEmail] = useState("");
-
   const subscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      toast({ title: "Please enter a valid email" });
+      toast({
+        title: "Please enter a valid email"
+      });
       return;
     }
-    toast({ title: "Subscribed!", description: "We'll keep you posted with offers." });
+    toast({
+      title: "Subscribed!",
+      description: "We'll keep you posted with offers."
+    });
     setEmail("");
   };
-
-  return (
-    <footer className="border-t bg-background">
-      <div className="container mx-auto grid gap-8 py-12 md:grid-cols-2">
+  return <footer className="border-t bg-background">
+      <div className="container mx-auto grid gap-8 py-12 md:grid-cols-2 bg-gray-50">
         <div className="space-y-3">
           <Link to="/" className="inline-flex items-center gap-2">
             <div className="h-6 w-6 rounded-md bg-[hsl(var(--accent))]" aria-hidden />
@@ -32,12 +33,7 @@ export function SiteFooter() {
         <div className="space-y-3">
           <p className="text-sm font-medium">Get product updates and offers</p>
           <form onSubmit={subscribe} className="flex gap-2 max-w-sm">
-            <Input
-              type="email"
-              placeholder="you@business.com"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
+            <Input type="email" placeholder="you@business.com" value={email} onChange={e => setEmail(e.target.value)} />
             <Button type="submit" variant="cta">Subscribe</Button>
           </form>
         </div>
@@ -52,6 +48,5 @@ export function SiteFooter() {
           </nav>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 }
