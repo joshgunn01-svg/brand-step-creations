@@ -20,7 +20,7 @@ export default function Gallery() {
       <div className="grid gap-6 md:grid-cols-3">
         {IMAGES.map((src, idx) => (
           <article key={idx} className="overflow-hidden rounded-xl border bg-card">
-            <img src={src} alt="Custom shoe charm example" loading="lazy" className="h-64 w-full object-cover" />
+            <img src={src} alt="Australian-themed custom shoe charms example (koala, kangaroo, Opera House, flag, wattle, ibis)" loading="lazy" className="h-64 w-full object-cover" />
           </article>
         ))}
       </div>
