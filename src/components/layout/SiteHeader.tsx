@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
-  { to: "/contact", label: "Enquire" },
 ];
 
 export function SiteHeader() {
@@ -15,7 +14,7 @@ export function SiteHeader() {
           <img src="/lovable-uploads/f3131de9-b91a-4967-af42-829c67c78fd5.png" alt="CustomCharm Co logo" loading="eager" width={32} height={32} className="h-8 w-8" />
           <span className="text-lg font-semibold tracking-tight">CustomCharm Co</span>
         </Link>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-6 ml-auto">
           {navItems.map((item) => (
             <NavLink
               key={item.to}
