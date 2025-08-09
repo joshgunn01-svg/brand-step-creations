@@ -44,7 +44,7 @@ const Index = () => {
         <AspectRatio ratio={16/9} className="relative rounded-xl overflow-hidden border shadow-2xl">
           <img
             src={heroImg}
-            alt="Custom shoe charms with placeholder logo area showing Your Logo Here on foam clogs"
+            alt="Hero: matte black foam clogs with Australian-themed PVC charms (flag, Sydney Opera House, koala badge, ibis with bin) clipped into holes, plus 'Your Logo Here' charm"
             loading="eager"
             className="absolute inset-0 h-full w-full object-cover"
           />
