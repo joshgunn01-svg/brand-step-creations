@@ -5,6 +5,10 @@ import retail1 from "@/assets/gallery-retail-1.jpg";
 import closeup1 from "@/assets/gallery-closeup-1.jpg";
 import tourism1 from "@/assets/gallery-tourism-1.jpg";
 import festival1 from "@/assets/gallery-festival-1.jpg";
+import processStep1 from "@/assets/process-step-1.jpg";
+import processStep2 from "@/assets/process-step-2.jpg";
+import processStep3 from "@/assets/process-step-3.jpg";
+import processStep4 from "@/assets/process-step-4.jpg";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
@@ -103,16 +107,26 @@ const Index = () => {
         <div className="rounded-xl border p-10 bg-[hsl(var(--secondary))]">
           <div className="grid gap-6 md:grid-cols-4">
             {[
-              { step: 1, title: "Enquire & send logo" },
-              { step: 2, title: "Receive digital mockup" },
-              { step: 3, title: "Approve & confirm" },
-              { step: 4, title: "Production & delivery" },
-            ].map(({ step, title }) => (
-              <div key={step} className="space-y-2">
-                <div className="h-8 w-8 rounded-md bg-[hsl(var(--accent))] text-[hsl(var(--sidebar-primary-foreground))] grid place-items-center font-semibold">
-                  {step}
+              { step: 1, title: "Enquire & send logo", image: processStep1 },
+              { step: 2, title: "Receive digital mockup", image: processStep2 },
+              { step: 3, title: "Approve & confirm", image: processStep3 },
+              { step: 4, title: "Production & delivery", image: processStep4 },
+            ].map(({ step, title, image }) => (
+              <div key={step} className="space-y-4">
+                <div className="aspect-square rounded-lg overflow-hidden border bg-card">
+                  <img 
+                    src={image} 
+                    alt={`Step ${step}: ${title}`} 
+                    loading="lazy" 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <h4 className="font-medium">{title}</h4>
+                <div className="space-y-2">
+                  <div className="h-8 w-8 rounded-md bg-[hsl(var(--accent))] text-[hsl(var(--sidebar-primary-foreground))] grid place-items-center font-semibold">
+                    {step}
+                  </div>
+                  <h4 className="font-medium">{title}</h4>
+                </div>
               </div>
             ))}
           </div>
