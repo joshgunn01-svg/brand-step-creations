@@ -1,7 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-
 const navItems = [
   { to: "/", label: "Home" },
   { to: "/about", label: "About" },
@@ -10,9 +9,9 @@ const navItems = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
       <div className="container mx-auto flex h-16 items-center justify-between">
-<Link to="/" className="flex items-center gap-2" aria-label="CustomCharm Co home">
+        <Link to="/" className="flex items-center gap-2" aria-label="CustomCharm Co home">
           <img src="/lovable-uploads/f66d2a29-6353-4783-b4c7-8f090e495f39.png" alt="CustomCharm Co logo" loading="eager" width={32} height={32} className="h-8 w-8" />
           <span className="text-lg font-semibold tracking-tight">CustomCharm Co</span>
         </Link>
@@ -22,7 +21,11 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `text-sm transition-colors ${isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`
+                `text-sm transition-colors ${
+                  isActive
+                    ? "text-[hsl(var(--background))]"
+                    : "text-[hsl(var(--background))]/90 hover:text-[hsl(var(--background))]"
+                }`
               }
             >
               {item.label}
