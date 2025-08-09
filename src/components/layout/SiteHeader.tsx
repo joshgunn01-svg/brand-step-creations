@@ -9,10 +9,10 @@ const navItems = [
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-[hsl(var(--foreground))] text-[hsl(var(--background))]">
+    <header className="sticky top-0 z-50 w-full border-b bg-[hsl(var(--background))] text-[hsl(var(--foreground))]">
       <div className="container mx-auto flex h-16 items-center justify-between">
         <Link to="/" className="flex items-center gap-2" aria-label="CustomCharm Co home">
-          <img src="/lovable-uploads/f66d2a29-6353-4783-b4c7-8f090e495f39.png" alt="CustomCharm Co logo" loading="eager" width={32} height={32} className="h-8 w-8" />
+          <img src="/lovable-uploads/f3131de9-b91a-4967-af42-829c67c78fd5.png" alt="CustomCharm Co logo" loading="eager" width={32} height={32} className="h-8 w-8" />
           <span className="text-lg font-semibold tracking-tight">CustomCharm Co</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6">
@@ -21,11 +21,7 @@ export function SiteHeader() {
               key={item.to}
               to={item.to}
               className={({ isActive }) =>
-                `text-sm transition-colors ${
-                  isActive
-                    ? "text-[hsl(var(--background))]"
-                    : "text-[hsl(var(--background))]/90 hover:text-[hsl(var(--background))]"
-                }`
+                `text-sm transition-colors ${isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"}`
               }
             >
               {item.label}
