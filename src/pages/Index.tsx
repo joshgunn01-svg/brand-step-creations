@@ -69,7 +69,7 @@ const Index = () => {
       <section className="container mx-auto py-16">
         <h2 className="text-2xl font-semibold mb-6">In Action</h2>
         <div className="grid gap-6 md:grid-cols-3">
-          {["/lovable-uploads/ccd82adb-1324-4419-a3b4-fce48b314d6c.png", cafe1, bar1, retail1, closeup1, tourism1, festival1].slice(0,6).map((src, i) => (
+          {["/lovable-uploads/a1224a7a-3362-4568-82d9-e8256fecd52e.png", cafe1, bar1, retail1, closeup1, tourism1, festival1].slice(0,6).map((src, i) => (
             <article key={i} className="group relative overflow-hidden rounded-xl border bg-card">
               <img src={src} alt="Product photo: custom PVC shoe charms clipped into foam clog holes, 3D embossed and professionally lit" loading="lazy" className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
             </article>
