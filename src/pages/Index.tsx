@@ -64,7 +64,7 @@ const Index = () => {
           <div className="relative">
             <img
               src={heroImg}
-              alt="Custom branded shoe charms product hero for businesses"
+              alt="Custom shoe charms for Australian businesses on unbranded foam clogs"
               loading="eager"
               className="w-full h-auto rounded-xl border shadow-2xl"
             />
@@ -77,7 +77,7 @@ const Index = () => {
         <div className="grid gap-6 md:grid-cols-3">
           {[cafe1, bar1, retail1, closeup1, tourism1, festival1].slice(0,6).map((src, i) => (
             <article key={i} className="group relative overflow-hidden rounded-xl border bg-card">
-              <img src={src} alt="Custom shoe charms in real-world use" loading="lazy" className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+              <img src={src} alt="Custom shoe charms in Australian settings — unbranded foam clogs" loading="lazy" className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
             </article>
           ))}
         </div>
