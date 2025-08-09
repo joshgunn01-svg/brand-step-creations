@@ -12,6 +12,7 @@ import processStep4 from "@/assets/process-step-4.jpg";
 import { Button } from "@/components/ui/button";
 import { Helmet } from "react-helmet-async";
 import { Link, useNavigate } from "react-router-dom";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const benefits = [
   "Wholesale pricing from $2/unit (min. 500 units)",
@@ -39,19 +40,21 @@ const Index = () => {
         <link rel="canonical" href="/" />
       </Helmet>
 
-      <section onMouseMove={onPointerMove} className="relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" aria-hidden>
-          <div className="h-full w-full bg-[var(--gradient-hero)] opacity-60" />
-        </div>
-        <div className="container mx-auto grid gap-10 py-20 md:grid-cols-2 relative">
-          <div className="space-y-6">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-              Your Logo, Your Charm
-            </h1>
-            <p className="text-lg text-muted-foreground max-w-prose">
-              Boost brand awareness and delight customers with high-quality, fully customisable shoe charms. Perfect for resale, giveaways, or merchandise.
+      <section className="container mx-auto py-6 md:py-10">
+        <AspectRatio ratio={16/9} className="relative rounded-xl overflow-hidden border shadow-2xl">
+          <img
+            src={heroImg}
+            alt="Custom shoe charms with placeholder logo area showing Your Logo Here on foam clogs"
+            loading="eager"
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/40 to-transparent" aria-hidden />
+          <div className="absolute top-0 left-0 p-6 md:p-10 max-w-xl">
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight">Your Logo, Your Charm</h1>
+            <p className="mt-3 text-lg text-muted-foreground max-w-prose hidden md:block">
+              Boost brand awareness with custom PVC charms for cafes, retail, events & tourism.
             </p>
-            <div className="flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3">
               <Button variant="cta" size="lg" onClick={() => navigate("/contact?type=mockup")}>
                 Request a Free Mockup
               </Button>
@@ -59,21 +62,8 @@ const Index = () => {
                 Get a Quote
               </Button>
             </div>
-            <ul className="grid gap-2 pt-4">
-              {benefits.map((b) => (
-                <li key={b} className="text-sm text-muted-foreground">• {b}</li>
-              ))}
-            </ul>
           </div>
-          <div className="relative">
-            <img
-              src={heroImg}
-              alt="Custom shoe charms with placeholder logo area showing Your Logo Here on foam clogs"
-              loading="eager"
-              className="w-full h-auto rounded-xl border shadow-2xl"
-            />
-          </div>
-        </div>
+        </AspectRatio>
       </section>
 
       <section className="container mx-auto py-16">
