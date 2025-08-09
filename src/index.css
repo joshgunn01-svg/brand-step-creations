@@ -53,6 +53,7 @@ All colors MUST be HSL.
     --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--accent) / 0.8));
     --shadow-elevate: 0 20px 40px -12px hsl(var(--primary) / 0.25);
     --shadow-glow: 0 8px 30px hsl(var(--accent) / 0.45);
+    --header-bg: 42 32% 97%;
     --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -68,6 +69,7 @@ All colors MUST be HSL.
 
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
+    --header-bg: 222.2 14% 12%;
 
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
