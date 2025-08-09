@@ -1,4 +1,4 @@
-import heroImg from "@/assets/hero-homepage.jpg";
+const heroImg = "/lovable-uploads/2d61b2a2-d92c-4e2b-88a8-ba5f162e7dfb.png";
 import cafe1 from "@/assets/gallery-cafe-1.jpg";
 import bar1 from "@/assets/gallery-bar-1.jpg";
 import retail1 from "@/assets/gallery-retail-1.jpg";
@@ -44,7 +44,7 @@ const Index = () => {
         <AspectRatio ratio={16/9} className="relative rounded-xl overflow-hidden border shadow-2xl">
           <img
             src={heroImg}
-            alt="Hero: matte black foam clogs with Australian-themed PVC charms (flag, Sydney Opera House, koala badge, ibis with bin) clipped into holes, plus 'Your Logo Here' charm"
+            alt="Hero: white foam clogs with cafe-themed 3D charms (coffee cup, shopping bag, 'Your Logo Here' shield, heart, dumbbells, QR code)"
             loading="eager"
             className="absolute inset-0 h-full w-full object-cover"
           />
