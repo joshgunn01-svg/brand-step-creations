@@ -71,7 +71,7 @@ const Index = () => {
         <div className="grid gap-6 md:grid-cols-3">
           {[cafe1, bar1, retail1, closeup1, tourism1, festival1].slice(0,6).map((src, i) => (
             <article key={i} className="group relative overflow-hidden rounded-xl border bg-card">
-              <img src={src} alt="Flat-lay grid of PVC rubber clip-in shoe charms (3D embossed), some flipped to show clip hardware — Etsy-style product photo" loading="lazy" className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
+              <img src={src} alt="Product photo: custom PVC shoe charms clipped into foam clog holes, 3D embossed and professionally lit" loading="lazy" className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
             </article>
           ))}
         </div>
