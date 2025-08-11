@@ -1,9 +1,12 @@
 <?php
-// Serve the built SPA index.html from the theme directory.
+// Serve the built SPA index.html from the theme directory and fix relative asset paths.
 $spa_index = __DIR__ . '/index.html';
 if (file_exists($spa_index)) {
-    // Output the static build directly so relative asset paths (./assets/...) work.
-    readfile($spa_index);
+    $html = file_get_contents($spa_index);
+    $base = rtrim(get_template_directory_uri(), '/') . '/';
+    // Inject <base> so ./assets and other relative paths resolve to the theme directory
+    $html = preg_replace('/<head(.*?)>/', '<head$1><base href="' . $base . '">', $html, 1);
+    echo $html;
     exit;
 }
 ?><!doctype html>
