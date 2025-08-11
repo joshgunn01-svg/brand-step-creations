@@ -1,6 +1,6 @@
 <?php
 /**
- * Minimal one-page index template (no header/footer files required)
+ * Minimal one-page index template for CustomCharm Theme
  */
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
@@ -8,7 +8,7 @@
   <meta charset="<?php bloginfo('charset'); ?>" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="canonical" href="<?php echo esc_url( home_url('/') ); ?>" />
-  <meta name="description" content="Custom shoe charms for cafes, retail, events & tourism. From $1.50/unit. Free mockup & fast delivery Australia-wide." />
+  <meta name="description" content="Custom shoe charms for cafes, bars, retail, events & tourism. From $1.50/unit. Free mockup & fast delivery Australia-wide." />
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
@@ -27,9 +27,6 @@
       <a href="#examples">Examples</a>
       <a href="#benefits">Benefits</a>
       <a href="#process">Process</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#industries">Industries</a>
-      <a href="#pricing">Pricing</a>
       <a class="cta" href="#contact">Request Free Mockup</a>
     </nav>
   </div>
@@ -40,14 +37,14 @@
   <section id="hero" class="hero">
     <div class="container">
       <div class="hero-frame" style="aspect-ratio:16/9;">
-        <img class="hero-img" src="<?php echo $img; ?>/hero-homepage.jpg" alt="Hero: custom shoe charms on white clogs with branded 3D PVC elements" loading="eager" />
+        <img class="hero-img" src="<?php echo $img; ?>/2d61b2a2-d92c-4e2b-88a8-ba5f162e7dfb-clean.png" alt="Hero: white foam clogs with cafe-themed 3D charms (coffee cup, shopping bag, 'Your Logo Here' shield, heart, dumbbells, QR code)" loading="eager" />
         <div class="hero-overlay" aria-hidden></div>
         <div class="hero-copy">
           <h1>Your Logo<br/>Your Charm</h1>
           <p>Boost brand awareness with custom PVC charms for cafes, retail, events & tourism.</p>
           <div class="row mt-6">
             <a class="cta" href="#contact">Request a Free Mockup</a>
-            <a class="cta alt" href="#pricing">Get a Quote</a>
+            <a class="cta alt" href="#contact">Get a Quote</a>
           </div>
         </div>
       </div>
@@ -59,12 +56,18 @@
     <div class="container">
       <h2>Example Designs</h2>
       <div class="grid grid-3 mt-6">
-        <article class="card"><img src="<?php echo $img; ?>/design-1.png" alt="Custom PVC shoe charms example 1" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/design-2.png" alt="Custom PVC shoe charms example 2" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/design-3.png" alt="Custom PVC shoe charms example 3" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/design-4.png" alt="Custom PVC shoe charms example 4" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/design-5.png" alt="Custom PVC shoe charms example 5" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/design-6.png" alt="Custom PVC shoe charms example 6" loading="lazy"></article>
+        <?php
+          $examples = [
+            '84d7e845-e760-4710-9fa8-1957691e6b38.png',
+            '072ecd0d-864d-4225-93db-6bb9a31ad0ed.png',
+            'df0b164a-c28d-40a1-8f0d-4f086b83df7a.png',
+            '44d1ae5e-ac9b-4bae-b191-5d2773e34391.png',
+            '463cdbfe-e8a8-4475-8115-ac238f8c2214.png',
+            '2ba1dd87-b771-411a-bbbf-8316c0a8555b.png',
+          ];
+          foreach ($examples as $file): ?>
+            <article class="card"><img src="<?php echo $img . '/' . esc_attr($file); ?>" alt="Product photo: custom PVC shoe charms clipped into foam clog holes, 3D embossed and professionally lit" loading="lazy"></article>
+        <?php endforeach; ?>
       </div>
     </div>
   </section>
@@ -75,8 +78,8 @@
       <h2>Why brands choose us</h2>
       <div class="grid grid-3 mt-6">
         <div class="card" style="padding:1rem"><p>Wholesale pricing from $1.50/unit (min. 500 units)</p></div>
-        <div class="card" style="padding:1rem"><p>Custom designs & branding</p></div>
-        <div class="card" style="padding:1rem"><p>Fast turnaround & delivery Australia-wide</p></div>
+        <div class="card" style="padding:1rem"><p>Custom designs &amp; branding</p></div>
+        <div class="card" style="padding:1rem"><p>Fast turnaround &amp; delivery Australia-wide</p></div>
         <div class="card" style="padding:1rem"><p>High-quality, durable materials</p></div>
       </div>
     </div>
@@ -108,53 +111,7 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
-  <section id="gallery" class="section" style="background:rgba(255,255,255,0.02)">
-    <div class="container">
-      <h2>Gallery &amp; Examples</h2>
-      <div class="grid grid-3 mt-6">
-        <article class="card"><img src="<?php echo $img; ?>/gallery-cafe-1.jpg" alt="Cafe display with custom shoe charms" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/gallery-bar-1.jpg" alt="Bar merchandise shoe charms" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/gallery-retail-1.jpg" alt="Retail wall display of shoe charms" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/gallery-closeup-1.jpg" alt="Close-up of PVC charm quality" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/gallery-tourism-1.jpg" alt="Tourism themed shoe charms" loading="lazy"></article>
-        <article class="card"><img src="<?php echo $img; ?>/gallery-festival-1.jpg" alt="Festival giveaway charms" loading="lazy"></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- INDUSTRIES -->
-  <section id="industries" class="section">
-    <div class="container">
-      <h2>Industries We Serve</h2>
-      <div class="grid grid-3 mt-6">
-        <article class="card" style="padding:1rem"><h3>Cafes</h3><p class="muted">Resale, loyalty gifts, staff accessories</p></article>
-        <article class="card" style="padding:1rem"><h3>Bars &amp; Venues</h3><p class="muted">Merchandise, event giveaways</p></article>
-        <article class="card" style="padding:1rem"><h3>Festivals</h3><p class="muted">Branded souvenirs, VIP perks</p></article>
-        <article class="card" style="padding:1rem"><h3>Retail Stores</h3><p class="muted">Point-of-sale add-ons, brand promos</p></article>
-        <article class="card" style="padding:1rem"><h3>Tourism &amp; Souvenirs</h3><p class="muted">Destination-branded charms</p></article>
-        <article class="card" style="padding:1rem"><h3>Sporting Clubs</h3><p class="muted">Team merchandise, supporter packs</p></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICING -->
-  <section id="pricing" class="section" style="background:rgba(255,255,255,0.02)">
-    <div class="container">
-      <h2>Pricing &amp; Minimum Order</h2>
-      <div class="card" style="padding:1.5rem;max-width:680px;">
-        <p style="font-size:1.125rem;font-weight:600">From $1.50 / unit</p>
-        <p class="muted">Minimum order: 500 units</p>
-        <p class="muted" style="font-size:.95rem">Bulk discounts available for larger quantities. Pricing varies by complexity and finish.</p>
-        <div class="row mt-6">
-          <a class="cta" href="#contact">Request a Quote</a>
-          <a class="cta alt" href="#contact">Get a Free Mockup</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
+  <!-- CONTACT (simple anchor target) -->
   <section id="contact" class="section">
     <div class="container">
       <h2>Contact</h2>
