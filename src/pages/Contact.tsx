@@ -24,25 +24,56 @@ export default function Contact() {
     industry: "",
     message: "",
   });
-  const [fileName, setFileName] = useState<string>("");
+const [fileName, setFileName] = useState<string>("");
+const [enquiryWebhook, setEnquiryWebhook] = useState<string>(() => localStorage.getItem('zapier_enquiry_webhook') || '');
+const [isSending, setIsSending] = useState<boolean>(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setForm((f) => ({ ...f, [name]: value }));
   };
 
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name || !form.email || !form.business) {
-      toast({ title: "Please fill in name, business and email." });
-      return;
-    }
+const onSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!form.name || !form.email || !form.business) {
+    toast({ title: "Please fill in name, business and email." });
+    return;
+  }
+  if (!enquiryWebhook) {
+    toast({ title: "Add your Zapier webhook URL", description: "Paste it in the field below the message box.", });
+    return;
+  }
+  try {
+    setIsSending(true);
+    // Persist webhook locally for future use
+    localStorage.setItem('zapier_enquiry_webhook', enquiryWebhook);
+
+    await fetch(enquiryWebhook, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      body: JSON.stringify({
+        event: 'enquiry',
+        notify_email: 'customcharmco1@gmail.com',
+        ...form,
+        fileName,
+        timestamp: new Date().toISOString(),
+        source: window.location.href,
+      }),
+    });
+
     toast({
       title: "Enquiry sent!",
       description: "Thanks — we'll reply within 1 business day with your mockup/quote.",
     });
     setForm({ ...form, message: "" });
-  };
+  } catch (err) {
+    console.error('Enquiry webhook error', err);
+    toast({ title: "Error", description: "Couldn't send enquiry. Check your Zapier webhook and try again.", });
+  } finally {
+    setIsSending(false);
+  }
+};
 
   return (
     <div className="container mx-auto py-16">
@@ -105,8 +136,18 @@ export default function Contact() {
               <Label htmlFor="message">Message</Label>
               <Textarea id="message" name="message" rows={4} value={form.message} onChange={onChange} placeholder="Tell us about your design, quantities, deadlines…" />
             </div>
+            <div className="grid gap-2">
+              <Label htmlFor="enquiry-webhook">Zapier Webhook (Enquiries)</Label>
+              <Input
+                id="enquiry-webhook"
+                placeholder="https://hooks.zapier.com/hooks/catch/..."
+                value={enquiryWebhook}
+                onChange={(e) => setEnquiryWebhook(e.target.value)}
+              />
+              <p className="text-xs text-muted-foreground">We store this locally in your browser. Your Zap can email enquiries to customcharmco1@gmail.com and forward details to your tools.</p>
+            </div>
             <div className="flex gap-3">
-              <Button type="submit" variant="cta">Send Enquiry</Button>
+              <Button type="submit" variant="cta" disabled={isSending}>{isSending ? 'Sending…' : 'Send Enquiry'}</Button>
               <Button type="button" variant="outline" onClick={() => setForm({ ...form, message: "" })}>Clear</Button>
             </div>
           </form>
