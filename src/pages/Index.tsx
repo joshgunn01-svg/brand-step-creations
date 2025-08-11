@@ -19,8 +19,7 @@ const Index = () => {
   };
   return <div className="bg-background">
       <Helmet>
-        <title>Your Logo,  
-Your Charm</title>
+        <title>CustomCharm Co — Custom Shoe Charms</title>
         <meta name="description" content="Custom shoe charms for cafes, bars, retail, events & tourism. From $1.50/unit. Free mockup & fast delivery Australia-wide." />
         <link rel="canonical" href="/" />
       </Helmet>
