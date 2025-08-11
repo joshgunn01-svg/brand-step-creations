@@ -26,15 +26,40 @@ Your Charm</title>
       </Helmet>
 
       <section className="container mx-auto py-6 md:py-10">
-        <AspectRatio ratio={16 / 9} className="relative rounded-xl overflow-hidden border shadow-2xl">
-          <img src={heroImg} alt="Hero: white foam clogs with cafe-themed 3D charms (coffee cup, shopping bag, 'Your Logo Here' shield, heart, dumbbells, QR code)" loading="eager" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/40 to-transparent" aria-hidden />
-            <div className="absolute top-0 left-0 p-6 md:p-10 max-w-xl">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+        {/* Mobile hero */}
+        <div className="relative md:hidden h-[60vh] min-h-[380px] rounded-xl overflow-hidden border shadow-2xl">
+          <img
+            src={heroImg}
+            alt="Hero: white foam clogs with cafe-themed 3D charms (coffee cup, shopping bag, 'Your Logo Here' shield, heart, dumbbells, QR code)"
+            loading="eager"
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-background/70 via-background/30 to-transparent" aria-hidden />
+          <div className="absolute top-0 left-0 p-6 max-w-[85%]">
+            <h1 className="text-4xl font-bold leading-tight">
               <span className="block">Your Logo</span>
               <span className="block">Your Charm</span>
             </h1>
-            <p className="mt-3 text-lg text-muted-foreground max-w-prose hidden md:block">Boost brand awareness with custom<br />PVC charms for cafes, retail, events & tourism.</p>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Button variant="cta" size="lg" onClick={() => navigate("/contact?type=mockup")}>
+                Request a Free Mockup
+              </Button>
+              <Button variant="hero" size="lg" onClick={() => navigate("/contact?type=quote")}>
+                Get a Quote
+              </Button>
+            </div>
+          </div>
+        </div>
+        {/* Desktop/Tablet hero */}
+        <AspectRatio ratio={16 / 9} className="relative hidden md:block rounded-xl overflow-hidden border shadow-2xl">
+          <img src={heroImg} alt="Hero: white foam clogs with cafe-themed 3D charms (coffee cup, shopping bag, 'Your Logo Here' shield, heart, dumbbells, QR code)" loading="eager" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-br from-background/70 via-background/40 to-transparent" aria-hidden />
+          <div className="absolute top-0 left-0 p-10 max-w-xl">
+            <h1 className="text-5xl font-bold leading-tight">
+              <span className="block">Your Logo</span>
+              <span className="block">Your Charm</span>
+            </h1>
+            <p className="mt-3 text-lg text-muted-foreground max-w-prose">Boost brand awareness with custom<br />PVC charms for cafes, retail, events & tourism.</p>
             <div className="mt-5 flex flex-wrap gap-3">
               <Button variant="cta" size="lg" onClick={() => navigate("/contact?type=mockup")}>
                 Request a Free Mockup
@@ -101,7 +126,6 @@ Your Charm</title>
               </div>)}
           </div>
           <div className="mt-8 flex gap-3">
-            <Button asChild variant="cta"><Link to="/process">See the full process</Link></Button>
             <Button asChild variant="outline"><Link to="/contact">Start your enquiry</Link></Button>
           </div>
         </div>
