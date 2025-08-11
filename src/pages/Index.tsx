@@ -1,4 +1,4 @@
-const heroImg = "/lovable-uploads/2d61b2a2-d92c-4e2b-88a8-ba5f162e7dfb-clean.png";
+const heroImg = "lovable-uploads/2d61b2a2-d92c-4e2b-88a8-ba5f162e7dfb-clean.png";
 import processStep1 from "@/assets/process-step-1.jpg";
 import processStep2 from "@/assets/process-step-2.jpg";
 import processStep3 from "@/assets/process-step-3.jpg";
@@ -75,7 +75,7 @@ Your Charm</title>
       <section className="container mx-auto py-16">
         <h2 className="text-2xl font-semibold mb-6">Example Designs</h2>
         <div className="grid gap-6 md:grid-cols-3">
-{["/lovable-uploads/84d7e845-e760-4710-9fa8-1957691e6b38.png", "/lovable-uploads/072ecd0d-864d-4225-93db-6bb9a31ad0ed.png", "/lovable-uploads/df0b164a-c28d-40a1-8f0d-4f086b83df7a.png", "/lovable-uploads/44d1ae5e-ac9b-4bae-b191-5d2773e34391.png", "/lovable-uploads/463cdbfe-e8a8-4475-8115-ac238f8c2214.png", "/lovable-uploads/2ba1dd87-b771-411a-bbbf-8316c0a8555b.png"].slice(0, 6).map((src, i) => <article key={i} className="group relative overflow-hidden rounded-xl border bg-card">
+{["lovable-uploads/84d7e845-e760-4710-9fa8-1957691e6b38.png", "lovable-uploads/072ecd0d-864d-4225-93db-6bb9a31ad0ed.png", "lovable-uploads/df0b164a-c28d-40a1-8f0d-4f086b83df7a.png", "lovable-uploads/44d1ae5e-ac9b-4bae-b191-5d2773e34391.png", "lovable-uploads/463cdbfe-e8a8-4475-8115-ac238f8c2214.png", "lovable-uploads/2ba1dd87-b771-411a-bbbf-8316c0a8555b.png"].slice(0, 6).map((src, i) => <article key={i} className="group relative overflow-hidden rounded-xl border bg-card">
               <img src={src} alt="Product photo: custom PVC shoe charms clipped into foam clog holes, 3D embossed and professionally lit" loading="lazy" className="h-64 w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" />
             </article>)}
         </div>
