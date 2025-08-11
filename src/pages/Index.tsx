@@ -95,7 +95,7 @@ Your Charm</title>
           <div className="grid gap-6 md:grid-cols-4">
             {[{
             step: 1,
-            title: "Enquire & send logo",
+            title: "Enquire & send logo free",
             image: processStep1
           }, {
             step: 2,
