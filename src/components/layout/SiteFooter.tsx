@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { toast } from "@/hooks/use-toast";
 export function SiteFooter() {
   const [email, setEmail] = useState("");
   const [subWebhook, setSubWebhook] = useState<string>(() => localStorage.getItem('zapier_subscribers_webhook') || 'https://hooks.zapier.com/hooks/catch/24165301/u6mj5vg/');
   const [isLoading, setIsLoading] = useState(false);
+  const [params] = useSearchParams();
+  const showDev = useMemo(() => params.get("dev") === "1", [params]);
 
   const subscribe = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -60,11 +62,13 @@ export function SiteFooter() {
             <Input type="email" placeholder="you@business.com" value={email} onChange={e => setEmail(e.target.value)} />
             <Button type="submit" variant="cta" disabled={isLoading}>{isLoading ? 'Sending…' : 'Subscribe'}</Button>
           </form>
-          <div className="grid gap-1 max-w-sm">
-            <label htmlFor="sub-webhook" className="text-xs text-muted-foreground">Zapier Webhook (Subscribers)</label>
-            <Input id="sub-webhook" placeholder="https://hooks.zapier.com/hooks/catch/..." value={subWebhook} onChange={(e) => setSubWebhook(e.target.value)} />
-            <p className="text-xs text-muted-foreground">We store this locally in your browser. Point your Zap to add a row in Google Sheets.</p>
-          </div>
+          {showDev && (
+            <div className="grid gap-1 max-w-sm">
+              <label htmlFor="sub-webhook" className="text-xs text-muted-foreground">Zapier Webhook (Subscribers)</label>
+              <Input id="sub-webhook" placeholder="https://hooks.zapier.com/hooks/catch/..." value={subWebhook} onChange={(e) => setSubWebhook(e.target.value)} />
+              <p className="text-xs text-muted-foreground">We store this locally in your browser. Point your Zap to add a row in Google Sheets.</p>
+            </div>
+          )}
         </div>
       </div>
       <div className="border-t">
