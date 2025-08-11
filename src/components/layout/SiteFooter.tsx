@@ -5,7 +5,7 @@ import { useState } from "react";
 import { toast } from "@/hooks/use-toast";
 export function SiteFooter() {
   const [email, setEmail] = useState("");
-  const [subWebhook, setSubWebhook] = useState<string>(() => localStorage.getItem('zapier_subscribers_webhook') || '');
+  const [subWebhook, setSubWebhook] = useState<string>(() => localStorage.getItem('zapier_subscribers_webhook') || 'https://hooks.zapier.com/hooks/catch/24165301/u6mj5vg/');
   const [isLoading, setIsLoading] = useState(false);
 
   const subscribe = async (e: React.FormEvent) => {

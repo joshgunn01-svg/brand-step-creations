@@ -25,7 +25,9 @@ export default function Contact() {
     message: "",
   });
 const [fileName, setFileName] = useState<string>("");
-const [enquiryWebhook, setEnquiryWebhook] = useState<string>(() => localStorage.getItem('zapier_enquiry_webhook') || '');
+const [enquiryWebhook, setEnquiryWebhook] = useState<string>(
+  () => localStorage.getItem('zapier_enquiry_webhook') || 'https://hooks.zapier.com/hooks/catch/24165301/u6mj5vg/'
+);
 const [isSending, setIsSending] = useState<boolean>(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
