@@ -1,13 +1,42 @@
 /*
-Theme Name: CustomCharm SPA
+Theme Name: CustomCharm One Page
 Theme URI: https://customcharm.example
 Author: CustomCharm Co
 Author URI: https://customcharm.example
-Description: Minimal WordPress theme that serves the built React SPA.
+Description: Lightweight one-page WordPress theme for CustomCharm with Customizer options.
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: customcharm-spa
+Text Domain: customcharm-onepage
 */
 
-/* This file only needs the header block for WordPress to recognize the theme. */
+/* Basic one-page layout styles (minimal; extend as needed) */
+:root {
+  --bg: #0b0c10;
+  --fg: #f5f7fb;
+  --muted: #c7c9d1;
+  --brand: #6c5ce7;
+}
+
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif; color: var(--fg); background: var(--bg); }
+
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(11,12,16,0.85); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(255,255,255,0.06); }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+.site-brand { display: flex; align-items: center; gap: .75rem; padding: .75rem 0; }
+.site-title { margin: 0; font-size: 1rem; letter-spacing: .02em; }
+.nav { display: flex; gap: 1rem; }
+.nav a { color: var(--fg); text-decoration: none; opacity: .8; padding: .5rem .75rem; border-radius: .5rem; }
+.nav a:hover, .nav a:focus { opacity: 1; background: rgba(255,255,255,0.06); }
+
+.section { padding: 72px 0; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.section h2 { margin: 0 0 .5rem; font-size: clamp(1.5rem, 2.2vw, 2rem); }
+.section p { color: var(--muted); max-width: 70ch; }
+
+.hero { padding: 96px 0; text-align: center; background: radial-gradient(1200px 600px at 50% -20%, rgba(108,92,231,.25), rgba(108,92,231,0) 60%); }
+.hero h1 { margin: 0 0 1rem; font-size: clamp(2rem, 4vw, 3rem); }
+.hero p { margin: 0 auto 1.25rem; max-width: 70ch; color: var(--muted); }
+.btn { display: inline-block; background: var(--brand); color: white; padding: .75rem 1rem; border-radius: .75rem; text-decoration: none; font-weight: 600; }
+.btn:hover { filter: brightness(1.05); }
+
+.site-footer { color: var(--muted); font-size: .9rem; padding: 2rem 0; }
