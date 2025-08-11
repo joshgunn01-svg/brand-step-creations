@@ -32,6 +32,9 @@ export default function Contact() {
   const [enquiryWebhook, setEnquiryWebhook] = useState<string>(
     () => localStorage.getItem('zapier_enquiry_webhook') || 'https://hooks.zapier.com/hooks/catch/24165301/u6mj5vg/'
   );
+  const [fileUploadWebhook, setFileUploadWebhook] = useState<string>(
+    () => localStorage.getItem('zapier_file_upload_webhook') || 'https://hooks.zapier.com/hooks/catch/24165301/u616gnj/'
+  );
   const [supabaseUrl, setSupabaseUrl] = useState<string>(() => localStorage.getItem('supabase_url') || '');
   const [supabaseAnon, setSupabaseAnon] = useState<string>(() => localStorage.getItem('supabase_anon') || '');
   const [isSending, setIsSending] = useState<boolean>(false);
@@ -114,7 +117,24 @@ export default function Contact() {
       // Upload logo if provided and include its URL in Zapier payload
       let fileUrl: string | null = null;
       if (file) {
+        // First try to create a public URL for the file (Supabase/Catbox/File.io)
         fileUrl = await uploadLogo(file);
+
+        // Also send the raw file to a dedicated Zapier hook if provided
+        if (fileUploadWebhook) {
+          const fd = new FormData();
+          fd.append('file', file, file.name);
+          fd.append('file_name', file.name);
+          fd.append('file_type', file.type || 'application/octet-stream');
+          fd.append('file_size', String(file.size));
+          if (fileUrl) fd.append('file_url', fileUrl);
+          fd.append('name', form.name);
+          fd.append('business', form.business);
+          fd.append('email', form.email);
+          fd.append('enquiry_type', form.type);
+          fd.append('origin', window.location.href);
+          await fetch(fileUploadWebhook, { method: 'POST', mode: 'no-cors', body: fd });
+        }
       }
 
       await fetch(enquiryWebhook, {
@@ -210,6 +230,19 @@ export default function Contact() {
             </div>
             {showDev && (
               <div className="grid gap-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="file-webhook">Zapier Webhook (File Upload)</Label>
+                  <Input
+                    id="file-webhook"
+                    placeholder="https://hooks.zapier.com/hooks/catch/..."
+                    value={fileUploadWebhook}
+                    onChange={(e) => {
+                      setFileUploadWebhook(e.target.value);
+                      localStorage.setItem('zapier_file_upload_webhook', e.target.value);
+                    }}
+                  />
+                  <p className="text-xs text-muted-foreground">We POST your raw file via multipart/form-data to this hook. Use Catch Raw Hook for best results.</p>
+                </div>
                 <div className="grid gap-2">
                   <Label htmlFor="enquiry-webhook">Zapier Webhook (Enquiries)</Label>
                   <Input
