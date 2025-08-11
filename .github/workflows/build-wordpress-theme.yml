@@ -1,0 +1,44 @@
+name: Build WordPress Theme
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build SPA
+        run: npm run build
+
+      - name: Prepare WordPress theme folder
+        run: |
+          THEME_SLUG=customcharm-spa
+          rm -rf "$THEME_SLUG"
+          mkdir -p "$THEME_SLUG"
+          # Add required WP theme files
+          cp wordpress-theme/style.css "$THEME_SLUG"/
+          cp wordpress-theme/index.php "$THEME_SLUG"/
+          # Copy built SPA (index.html and assets)
+          cp -R dist/* "$THEME_SLUG"/
+          # Zip the theme folder
+          zip -r "${THEME_SLUG}.zip" "$THEME_SLUG"
+
+      - name: Upload artifact (WordPress theme ZIP)
+        uses: actions/upload-artifact@v4
+        with:
+          name: wordpress-theme-zip
+          path: customcharm-spa.zip
