@@ -41,11 +41,6 @@ export function SiteFooter() {
       <div className="border-t">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between py-6 gap-4">
           <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} CustomCharm Co. All rights reserved.</p>
-          <nav className="flex gap-4 text-xs text-muted-foreground">
-            <Link to="/privacy" className="hover:text-foreground">Privacy</Link>
-            <Link to="/terms" className="hover:text-foreground">Terms</Link>
-            <Link to="/contact" className="hover:text-foreground">Contact</Link>
-          </nav>
         </div>
       </div>
     </footer>;
