@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
+import { getSupabase } from "@/lib/supabaseClient";
 
 export default function Contact() {
   const [params] = useSearchParams();
@@ -31,6 +32,8 @@ export default function Contact() {
   const [enquiryWebhook, setEnquiryWebhook] = useState<string>(
     () => localStorage.getItem('zapier_enquiry_webhook') || 'https://hooks.zapier.com/hooks/catch/24165301/u6mj5vg/'
   );
+  const [supabaseUrl, setSupabaseUrl] = useState<string>(() => localStorage.getItem('supabase_url') || '');
+  const [supabaseAnon, setSupabaseAnon] = useState<string>(() => localStorage.getItem('supabase_anon') || '');
   const [isSending, setIsSending] = useState<boolean>(false);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -38,18 +41,58 @@ export default function Contact() {
     setForm((f) => ({ ...f, [name]: value }));
   };
 
-  // Upload selected logo to temporary storage and return a public URL
+  // Upload selected logo to storage and return a public URL
   const uploadLogo = async (file: File): Promise<string | null> => {
+    // 1) Try Supabase Storage (if configured)
+    try {
+      const supabase = getSupabase();
+      if (supabase) {
+        const bucket = 'logos';
+        const path = `enquiries/${Date.now()}-${file.name}`;
+        const { error: uploadError } = await supabase.storage.from(bucket).upload(path, file, {
+          cacheControl: '3600',
+          upsert: false,
+          contentType: file.type || 'application/octet-stream',
+        });
+        if (!uploadError) {
+          const { data: pub } = supabase.storage.from(bucket).getPublicUrl(path);
+          if (pub?.publicUrl) return pub.publicUrl;
+          const { data: signed } = await supabase.storage.from(bucket).createSignedUrl(path, 60 * 60 * 24 * 14);
+          if (signed?.signedUrl) return signed.signedUrl;
+        } else {
+          console.warn('Supabase upload error', uploadError);
+        }
+      }
+    } catch (e) {
+      console.warn('Supabase upload failed', e);
+    }
+
+    // 2) Fallback: Catbox (public, free)
+    try {
+      const fd = new FormData();
+      fd.append('reqtype', 'fileupload');
+      // API expects the field to be named exactly 'fileToUpload'
+      fd.append('fileToUpload', file);
+      const res = await fetch('https://catbox.moe/user/api.php', { method: 'POST', body: fd });
+      const text = await res.text();
+      if (res.ok && text.startsWith('http')) {
+        return text.trim();
+      }
+    } catch (e) {
+      console.warn('Catbox upload failed', e);
+    }
+
+    // 3) Last resort: file.io temporary link (may be one-time and CORS-limited)
     try {
       const fd = new FormData();
       fd.append('file', file);
-      // 14-day expiry; adjust in Zap if you mirror files to a permanent store
       const res = await fetch('https://file.io/?expires=14d', { method: 'POST', body: fd });
       const data = await res.json();
       if (data?.link) return data.link as string;
     } catch (e) {
-      console.warn('Logo upload failed', e);
+      console.warn('file.io upload failed', e);
     }
+
     return null;
   };
 
@@ -166,15 +209,45 @@ export default function Contact() {
               <Textarea id="message" name="message" rows={4} value={form.message} onChange={onChange} placeholder="Tell us about your design, quantities, deadlines…" />
             </div>
             {showDev && (
-              <div className="grid gap-2">
-                <Label htmlFor="enquiry-webhook">Zapier Webhook (Enquiries)</Label>
-                <Input
-                  id="enquiry-webhook"
-                  placeholder="https://hooks.zapier.com/hooks/catch/..."
-                  value={enquiryWebhook}
-                  onChange={(e) => setEnquiryWebhook(e.target.value)}
-                />
-                <p className="text-xs text-muted-foreground">We store this locally in your browser. Your Zap can email enquiries to customcharmco1@gmail.com and forward details to your tools.</p>
+              <div className="grid gap-4">
+                <div className="grid gap-2">
+                  <Label htmlFor="enquiry-webhook">Zapier Webhook (Enquiries)</Label>
+                  <Input
+                    id="enquiry-webhook"
+                    placeholder="https://hooks.zapier.com/hooks/catch/..."
+                    value={enquiryWebhook}
+                    onChange={(e) => {
+                      setEnquiryWebhook(e.target.value);
+                      localStorage.setItem('zapier_enquiry_webhook', e.target.value);
+                    }}
+                  />
+                  <p className="text-xs text-muted-foreground">Stored locally. Your Zap can email enquiries to customcharmco1@gmail.com and forward details to your tools.</p>
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="supabase-url">Supabase URL (optional)</Label>
+                  <Input
+                    id="supabase-url"
+                    placeholder="https://YOUR-PROJECT.supabase.co"
+                    value={supabaseUrl}
+                    onChange={(e) => {
+                      setSupabaseUrl(e.target.value);
+                      localStorage.setItem('supabase_url', e.target.value);
+                    }}
+                  />
+                </div>
+                <div className="grid gap-2">
+                  <Label htmlFor="supabase-anon">Supabase Anon Key (optional)</Label>
+                  <Input
+                    id="supabase-anon"
+                    placeholder="ey..."
+                    value={supabaseAnon}
+                    onChange={(e) => {
+                      setSupabaseAnon(e.target.value);
+                      localStorage.setItem('supabase_anon', e.target.value);
+                    }}
+                  />
+                  <p className="text-xs text-muted-foreground">If provided, we upload logos to Supabase Storage and include a public or signed file_url in the Zap payload.</p>
+                </div>
               </div>
             )}
             <div className="flex gap-3">
