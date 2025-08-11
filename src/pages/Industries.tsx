@@ -14,14 +14,14 @@ const INDUSTRIES = [
 
 export default function Industries() {
   return (
-    <div className="container mx-auto py-16">
+    <div className="container mx-auto py-10 md:py-16">
       <Helmet>
         <title>Industries We Serve | CustomCharm Co</title>
         <meta name="description" content="Cafes, bars, festivals, retail stores, tourism, sporting clubs, and schools use custom shoe charms to drive engagement and sales." />
         <link rel="canonical" href="/industries" />
       </Helmet>
-      <h1 className="text-3xl font-semibold mb-6">Industries We Serve</h1>
-      <div className="grid gap-6 md:grid-cols-3">
+      <h1 className="text-2xl md:text-3xl font-semibold mb-6">Industries We Serve</h1>
+      <div className="grid gap-4 md:gap-6 md:grid-cols-3">
         {INDUSTRIES.map((i) => (
           <article key={i.title} className="rounded-xl border p-6 bg-card">
             <h2 className="font-medium text-lg">{i.title}</h2>

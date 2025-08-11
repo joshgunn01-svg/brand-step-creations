@@ -11,23 +11,23 @@ const steps = [
 
 export default function Process() {
   return (
-    <div className="container mx-auto py-16">
+    <div className="container mx-auto py-10 md:py-16">
       <Helmet>
         <title>Custom Charm Process | CustomCharm Co</title>
         <meta name="description" content="See how our 4-step process creates premium custom shoe charms: enquire, mockup, approve, and delivery." />
         <link rel="canonical" href="/process" />
       </Helmet>
-      <h1 className="text-3xl font-semibold mb-8">Our Process</h1>
+      <h1 className="text-2xl md:text-3xl font-semibold mb-8">Our Process</h1>
       <div className="grid gap-6 md:grid-cols-2">
         {steps.map((s) => (
           <div key={s.n} className="rounded-xl border p-6">
             <div className="h-9 w-9 rounded-md bg-[hsl(var(--accent))] grid place-items-center font-semibold text-[hsl(var(--sidebar-primary-foreground))] mb-3">{s.n}</div>
-            <h2 className="text-xl font-medium">{s.title}</h2>
+            <h2 className="text-lg md:text-xl font-medium">{s.title}</h2>
             <p className="text-muted-foreground mt-1">{s.desc}</p>
           </div>
         ))}
       </div>
-      <div className="mt-8 flex gap-3">
+      <div className="mt-8 flex flex-col sm:flex-row gap-3">
         <Button asChild variant="cta"><Link to="/contact?type=mockup">Get your free mockup</Link></Button>
         <Button asChild variant="outline"><Link to="/contact?type=quote">Request a quote</Link></Button>
       </div>
