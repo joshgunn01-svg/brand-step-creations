@@ -29,6 +29,7 @@ export function SiteFooter() {
         body: JSON.stringify({
           event: 'subscribe',
           email,
+          notify_email: 'customcharmco1@gmail.com',
           timestamp: new Date().toISOString(),
           source: window.location.href,
         }),
