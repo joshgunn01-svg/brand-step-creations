@@ -27,6 +27,7 @@ export default function Contact() {
     message: "",
   });
   const [fileName, setFileName] = useState<string>("");
+  const [file, setFile] = useState<File | null>(null);
   const [enquiryWebhook, setEnquiryWebhook] = useState<string>(
     () => localStorage.getItem('zapier_enquiry_webhook') || 'https://hooks.zapier.com/hooks/catch/24165301/u6mj5vg/'
   );
@@ -35,6 +36,21 @@ export default function Contact() {
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setForm((f) => ({ ...f, [name]: value }));
+  };
+
+  // Upload selected logo to temporary storage and return a public URL
+  const uploadLogo = async (file: File): Promise<string | null> => {
+    try {
+      const fd = new FormData();
+      fd.append('file', file);
+      // 14-day expiry; adjust in Zap if you mirror files to a permanent store
+      const res = await fetch('https://file.io/?expires=14d', { method: 'POST', body: fd });
+      const data = await res.json();
+      if (data?.link) return data.link as string;
+    } catch (e) {
+      console.warn('Logo upload failed', e);
+    }
+    return null;
   };
 
   const onSubmit = async (e: React.FormEvent) => {
@@ -52,6 +68,12 @@ export default function Contact() {
       // Persist webhook locally for future use
       localStorage.setItem('zapier_enquiry_webhook', enquiryWebhook);
 
+      // Upload logo if provided and include its URL in Zapier payload
+      let fileUrl: string | null = null;
+      if (file) {
+        fileUrl = await uploadLogo(file);
+      }
+
       await fetch(enquiryWebhook, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -61,6 +83,9 @@ export default function Contact() {
           notify_email: 'customcharmco1@gmail.com',
           ...form,
           fileName,
+          file_url: fileUrl,
+          file_size: file ? file.size : undefined,
+          file_type: file ? file.type : undefined,
           timestamp: new Date().toISOString(),
           source: window.location.href,
         }),
@@ -131,7 +156,7 @@ export default function Contact() {
                 id="logo"
                 type="file"
                 accept="image/*, .svg, .ai, .pdf"
-                onChange={(e) => setFileName(e.target.files?.[0]?.name || "")}
+                onChange={(e) => { const f = e.target.files?.[0] || null; setFile(f); setFileName(f?.name || ""); }}
                 className="h-10 rounded-md border bg-background px-3 text-sm file:mr-3 file:rounded file:border-0 file:bg-[hsl(var(--secondary))] file:px-3 file:py-2"
               />
               {fileName && <p className="text-xs text-muted-foreground">Selected: {fileName}</p>}
